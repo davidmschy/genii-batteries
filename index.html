@@ -3,25 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Genii Batteries - The Battery That Never Burns Out</title>
-    <meta name="description" content="Grid-scale saltwater flow battery. 3 MWh of clean, non-flammable, self-healing energy storage — built for under $300,000.">
+    <title>Genii Batteries G3000 - 3 MWh Commercial Energy Storage | 2-6 Week Delivery</title>
+    <meta name="description" content="Grid-scale saltwater flow battery. 3 MWh capacity, $600K installed, $150K IRS credit, delivered in 2-6 weeks. Non-flammable, 25+ year lifespan.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --bg-primary: #0a0a0a;
+            --bg-secondary: #151515;
+            --bg-tertiary: #1a1a1a;
+            --text-primary: #ffffff;
+            --text-secondary: #a0a0a0;
+            --accent-teal: #00E5CC;
+            --accent-teal-dim: #00b3a0;
+            --accent-dark: #008577;
+            --border-color: #2a2a2a;
+            --card-hover: #202020;
+        }
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-        }
-
-        :root {
-            --bg-dark: #050d1a;
-            --primary: #00C9B1;
-            --secondary: #7B6EF6;
-            --text: #e8edf5;
-            --card-bg: #0d1f35;
-            --card-border: rgba(0, 201, 177, 0.2);
         }
 
         html {
@@ -30,55 +34,48 @@
 
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-            background: var(--bg-dark);
-            color: var(--text);
+            background: var(--bg-primary);
+            color: var(--text-primary);
             line-height: 1.6;
             overflow-x: hidden;
         }
 
-        .navbar {
+        /* Navigation */
+        nav {
             position: fixed;
             top: 0;
             left: 0;
             right: 0;
             z-index: 1000;
-            background: rgba(5, 13, 26, 0.8);
-            backdrop-filter: blur(12px);
-            transition: all 0.3s ease;
-            border-bottom: 1px solid rgba(0, 201, 177, 0.1);
-        }
-
-        .navbar.scrolled {
-            background: rgba(5, 13, 26, 0.95);
-            padding: 0.5rem 0;
-            box-shadow: 0 4px 24px rgba(0, 201, 177, 0.1);
-        }
-
-        .nav-container {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 1rem 2rem;
+            padding: 1.5rem 5%;
             display: flex;
-            align-items: center;
             justify-content: space-between;
+            align-items: center;
+            transition: background 0.3s ease, backdrop-filter 0.3s ease;
+        }
+
+        nav.scrolled {
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border-color);
         }
 
         .nav-logo {
             font-size: 1.5rem;
             font-weight: 800;
-            color: var(--primary);
-            text-decoration: none;
             letter-spacing: -0.5px;
+            color: var(--text-primary);
         }
 
         .nav-links {
             display: flex;
             gap: 2.5rem;
+            align-items: center;
             list-style: none;
         }
 
         .nav-links a {
-            color: var(--text);
+            color: var(--text-secondary);
             text-decoration: none;
             font-weight: 500;
             font-size: 0.95rem;
@@ -86,25 +83,22 @@
         }
 
         .nav-links a:hover {
-            color: var(--primary);
+            color: var(--accent-teal);
         }
 
         .nav-cta {
-            background: var(--primary);
-            color: var(--bg-dark);
+            background: var(--accent-teal);
+            color: var(--bg-primary);
             padding: 0.75rem 1.75rem;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 700;
-            font-size: 0.95rem;
+            border-radius: 6px;
+            font-weight: 600;
             transition: all 0.3s ease;
-            border: 2px solid var(--primary);
         }
 
         .nav-cta:hover {
-            background: transparent;
-            color: var(--primary);
+            background: var(--accent-teal-dim);
             transform: translateY(-2px);
+            box-shadow: 0 4px 20px rgba(0, 229, 204, 0.3);
         }
 
         .hamburger {
@@ -116,844 +110,726 @@
         }
 
         .hamburger span {
-            width: 28px;
+            width: 25px;
             height: 3px;
-            background: var(--primary);
-            border-radius: 3px;
+            background: var(--text-primary);
+            border-radius: 2px;
             transition: all 0.3s ease;
         }
 
-        .hamburger.active span:nth-child(1) {
-            transform: rotate(45deg) translate(8px, 8px);
-        }
-
-        .hamburger.active span:nth-child(2) {
-            opacity: 0;
-        }
-
-        .hamburger.active span:nth-child(3) {
-            transform: rotate(-45deg) translate(8px, -8px);
-        }
-
+        /* Hero Section */
         .hero {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
             position: relative;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 5%;
             overflow: hidden;
-            padding: 8rem 2rem 4rem;
         }
 
-        .hero-background {
+        #particle-canvas {
             position: absolute;
             top: 0;
             left: 0;
-            right: 0;
-            bottom: 0;
-            overflow: hidden;
+            width: 100%;
+            height: 100%;
             z-index: 0;
         }
 
-        .orb {
-            position: absolute;
-            border-radius: 50%;
-            filter: blur(80px);
-            opacity: 0.3;
-            animation: float 20s infinite ease-in-out;
-        }
-
-        .orb-1 {
-            width: 500px;
-            height: 500px;
-            background: var(--primary);
-            top: -200px;
-            left: -100px;
-            animation-delay: 0s;
-        }
-
-        .orb-2 {
-            width: 400px;
-            height: 400px;
-            background: var(--secondary);
-            bottom: -150px;
-            right: -100px;
-            animation-delay: 5s;
-        }
-
-        .orb-3 {
-            width: 350px;
-            height: 350px;
-            background: var(--primary);
-            top: 50%;
-            right: 10%;
-            animation-delay: 10s;
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translate(0, 0) scale(1); }
-            25% { transform: translate(50px, -50px) scale(1.1); }
-            50% { transform: translate(-30px, 50px) scale(0.9); }
-            75% { transform: translate(30px, 30px) scale(1.05); }
-        }
-
         .hero-content {
-            max-width: 1400px;
-            width: 100%;
             position: relative;
             z-index: 1;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
+            max-width: 900px;
         }
 
-        .hero-text {
-            animation: fadeInUp 1s ease;
-        }
-
-        .badge {
-            display: inline-block;
-            background: rgba(0, 201, 177, 0.1);
-            border: 1px solid var(--primary);
-            color: var(--primary);
-            padding: 0.5rem 1.25rem;
-            border-radius: 50px;
-            font-size: 0.85rem;
-            font-weight: 600;
-            margin-bottom: 1.5rem;
-        }
-
-        h1 {
-            font-size: 4rem;
+        .hero h1 {
+            font-size: clamp(2.5rem, 7vw, 5rem);
             font-weight: 900;
-            line-height: 1.1;
-            margin-bottom: 1.5rem;
             letter-spacing: -2px;
+            margin-bottom: 1.5rem;
+            line-height: 1.1;
         }
 
         .hero-subtitle {
-            font-size: 1.25rem;
-            color: rgba(232, 237, 245, 0.8);
-            margin-bottom: 2.5rem;
-            line-height: 1.6;
+            font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+            color: var(--text-secondary);
+            margin-bottom: 3rem;
+            font-weight: 400;
         }
 
         .hero-ctas {
             display: flex;
-            gap: 1rem;
-            margin-bottom: 3rem;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 4rem;
         }
 
         .btn-primary {
-            background: var(--primary);
-            color: var(--bg-dark);
+            background: var(--accent-teal);
+            color: var(--bg-primary);
             padding: 1rem 2.5rem;
             border-radius: 8px;
-            text-decoration: none;
             font-weight: 700;
-            font-size: 1.05rem;
+            font-size: 1.1rem;
+            text-decoration: none;
             transition: all 0.3s ease;
-            border: 2px solid var(--primary);
-            display: inline-block;
+            border: none;
+            cursor: pointer;
         }
 
         .btn-primary:hover {
-            background: transparent;
-            color: var(--primary);
+            background: var(--accent-teal-dim);
             transform: translateY(-3px);
-            box-shadow: 0 10px 30px rgba(0, 201, 177, 0.3);
+            box-shadow: 0 8px 30px rgba(0, 229, 204, 0.4);
         }
 
-        .btn-outline {
+        .btn-secondary {
             background: transparent;
-            color: var(--text);
+            color: var(--text-primary);
             padding: 1rem 2.5rem;
             border-radius: 8px;
+            font-weight: 600;
+            font-size: 1.1rem;
             text-decoration: none;
-            font-weight: 700;
-            font-size: 1.05rem;
+            border: 2px solid var(--border-color);
             transition: all 0.3s ease;
-            border: 2px solid rgba(232, 237, 245, 0.3);
-            display: inline-block;
         }
 
-        .btn-outline:hover {
-            border-color: var(--primary);
-            color: var(--primary);
-            transform: translateY(-3px);
+        .btn-secondary:hover {
+            border-color: var(--accent-teal);
+            background: rgba(0, 229, 204, 0.1);
         }
 
-        .hero-stats {
+        .trust-badges {
             display: flex;
-            gap: 2.5rem;
+            gap: 2rem;
+            justify-content: center;
             flex-wrap: wrap;
+            padding: 0 1rem;
+        }
+
+        .badge {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .badge::before {
+            content: "✓";
+            color: var(--accent-teal);
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+
+        /* Stats Bar */
+        .stats-bar {
+            background: var(--bg-secondary);
+            border-top: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+            padding: 4rem 5%;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 3rem;
         }
 
         .stat {
-            font-size: 0.95rem;
-            font-weight: 600;
-            color: var(--primary);
-        }
-
-        .stat::before {
-            content: "●";
-            margin-right: 0.5rem;
-        }
-
-        .battery-viz {
-            position: relative;
-            width: 100%;
-            max-width: 500px;
-            height: 500px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .battery-container {
-            position: relative;
-            width: 280px;
-            height: 400px;
-            border: 4px solid var(--primary);
-            border-radius: 20px;
-            background: rgba(13, 31, 53, 0.6);
-            box-shadow: 0 0 60px rgba(0, 201, 177, 0.4), inset 0 0 40px rgba(0, 201, 177, 0.1);
-            overflow: hidden;
-        }
-
-        .battery-terminal {
-            position: absolute;
-            top: -25px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 25px;
-            background: var(--primary);
-            border-radius: 8px 8px 0 0;
-            box-shadow: 0 0 20px rgba(0, 201, 177, 0.6);
-        }
-
-        .battery-level {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            height: 75%;
-            background: linear-gradient(180deg, var(--primary) 0%, var(--secondary) 100%);
-            animation: charge 3s ease-in-out infinite;
-            box-shadow: 0 -10px 40px rgba(0, 201, 177, 0.6);
-        }
-
-        @keyframes charge {
-            0%, 100% { height: 75%; opacity: 0.8; }
-            50% { height: 85%; opacity: 1; }
-        }
-
-        .battery-bars {
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-around;
-            padding: 20px;
-            z-index: 2;
-        }
-
-        .battery-bar {
-            height: 12px;
-            background: rgba(0, 201, 177, 0.3);
-            border-radius: 6px;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .battery-bar::after {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 0;
-            bottom: 0;
-            width: 90%;
-            background: var(--primary);
-            border-radius: 6px;
-            animation: pulse 2s ease-in-out infinite;
-            box-shadow: 0 0 15px rgba(0, 201, 177, 0.8);
-        }
-
-        .battery-bar:nth-child(2)::after { animation-delay: 0.3s; width: 85%; }
-        .battery-bar:nth-child(3)::after { animation-delay: 0.6s; width: 95%; }
-        .battery-bar:nth-child(4)::after { animation-delay: 0.9s; width: 80%; }
-
-        @keyframes pulse {
-            0%, 100% { opacity: 0.6; }
-            50% { opacity: 1; }
-        }
-
-        .social-proof {
-            background: rgba(13, 31, 53, 0.6);
-            border-top: 1px solid var(--card-border);
-            border-bottom: 1px solid var(--card-border);
-            padding: 2rem;
-        }
-
-        .proof-container {
-            max-width: 1400px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-around;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 2rem;
-        }
-
-        .proof-item {
             text-align: center;
-            font-weight: 700;
-            font-size: 1.1rem;
-            color: var(--primary);
-        }
-
-        section {
-            padding: 6rem 2rem;
             opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.8s ease;
+            transform: translateY(20px);
+            transition: all 0.6s ease;
         }
 
-        section.visible {
+        .stat.visible {
             opacity: 1;
             transform: translateY(0);
         }
 
-        .container {
+        .stat-number {
+            font-size: clamp(2rem, 4vw, 3.5rem);
+            font-weight: 900;
+            color: var(--accent-teal);
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            font-weight: 500;
+        }
+
+        /* Section Styles */
+        section {
+            padding: 6rem 5%;
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 4rem;
+        }
+
+        .section-header h2 {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-weight: 900;
+            letter-spacing: -1.5px;
+            margin-bottom: 1rem;
+        }
+
+        .section-header p {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        /* Problem Section */
+        .problem {
+            background: var(--bg-secondary);
+        }
+
+        .pain-points {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .pain-card {
+            background: var(--bg-tertiary);
+            padding: 2.5rem;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+            transition: all 0.3s ease;
+        }
+
+        .pain-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+            border-color: rgba(0, 229, 204, 0.3);
+        }
+
+        .pain-icon {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .pain-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .pain-card p {
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        /* Solution Section */
+        .solution-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .solution-card {
+            background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-tertiary) 100%);
+            padding: 3rem;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .solution-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--accent-teal);
+            transform: scaleX(0);
+            transition: transform 0.4s ease;
+        }
+
+        .solution-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .solution-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 50px rgba(0, 229, 204, 0.2);
+        }
+
+        .solution-icon {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .solution-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            font-weight: 800;
+        }
+
+        .solution-card p {
+            color: var(--text-secondary);
+            font-size: 1.05rem;
+            line-height: 1.8;
+        }
+
+        /* How It Works */
+        .how-it-works {
+            background: var(--bg-secondary);
+        }
+
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
             max-width: 1400px;
             margin: 0 auto;
         }
 
-        .section-title {
+        .step {
             text-align: center;
-            font-size: 3rem;
-            font-weight: 800;
-            margin-bottom: 3rem;
-            letter-spacing: -1px;
-        }
-
-        .split-section {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-        }
-
-        .split-card {
-            background: var(--card-bg);
-            padding: 3rem;
-            border-radius: 16px;
-            border: 2px solid var(--card-border);
-        }
-
-        .split-card.problem {
-            border-color: rgba(239, 68, 68, 0.3);
-            background: linear-gradient(135deg, rgba(239, 68, 68, 0.05) 0%, var(--card-bg) 100%);
-        }
-
-        .split-card.solution {
-            border-color: var(--primary);
-            background: linear-gradient(135deg, rgba(0, 201, 177, 0.05) 0%, var(--card-bg) 100%);
-        }
-
-        .split-card h3 {
-            font-size: 2rem;
-            margin-bottom: 2rem;
-            font-weight: 800;
-        }
-
-        .split-card.problem h3 {
-            color: #ef4444;
-        }
-
-        .split-card.solution h3 {
-            color: var(--primary);
-        }
-
-        .split-card ul {
-            list-style: none;
-            display: flex;
-            flex-direction: column;
-            gap: 1.25rem;
-        }
-
-        .split-card li {
-            padding-left: 2rem;
+            padding: 2rem;
             position: relative;
-            font-size: 1.05rem;
         }
 
-        .split-card li::before {
-            content: "✓";
-            position: absolute;
-            left: 0;
-            font-weight: 800;
-            font-size: 1.2rem;
+        .step-number {
+            width: 60px;
+            height: 60px;
+            background: var(--accent-teal);
+            color: var(--bg-primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            font-weight: 900;
+            margin: 0 auto 1.5rem;
         }
 
-        .split-card.problem li::before {
-            content: "✗";
-            color: #ef4444;
+        .step h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.75rem;
+            font-weight: 700;
         }
 
-        .split-card.solution li::before {
-            color: var(--primary);
+        .step p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
         }
 
-        .features-grid {
+        /* Tech Specs */
+        .specs-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 2rem;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1.5rem;
+            max-width: 1400px;
+            margin: 0 auto;
         }
 
-        .feature-card {
-            background: var(--card-bg);
-            padding: 2.5rem;
-            border-radius: 16px;
-            border: 2px solid var(--card-border);
+        .spec-card {
+            background: var(--bg-secondary);
+            padding: 2rem;
+            border-radius: 10px;
+            border: 1px solid var(--border-color);
             transition: all 0.3s ease;
         }
 
-        .feature-card:hover {
-            border-color: var(--primary);
-            transform: translateY(-8px);
-            box-shadow: 0 20px 40px rgba(0, 201, 177, 0.2);
+        .spec-card:hover {
+            background: var(--card-hover);
+            border-color: var(--accent-teal);
+            transform: scale(1.03);
         }
 
-        .feature-icon {
-            font-size: 3rem;
-            margin-bottom: 1.5rem;
-            display: block;
+        .spec-label {
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
         }
 
-        .feature-card h3 {
-            font-size: 1.4rem;
-            margin-bottom: 1rem;
-            font-weight: 700;
-            color: var(--primary);
+        .spec-value {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--accent-teal);
         }
 
-        .feature-card p {
-            color: rgba(232, 237, 245, 0.8);
-            line-height: 1.7;
+        /* Comparison Table */
+        .comparison {
+            background: var(--bg-secondary);
         }
 
-        .table-container {
+        .comparison-table {
+            max-width: 1200px;
+            margin: 0 auto;
             overflow-x: auto;
-            margin-top: 3rem;
         }
 
         table {
             width: 100%;
             border-collapse: collapse;
-            background: var(--card-bg);
+            background: var(--bg-tertiary);
             border-radius: 12px;
             overflow: hidden;
         }
 
         thead {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            background: var(--bg-primary);
         }
 
         th {
             padding: 1.5rem;
             text-align: left;
             font-weight: 700;
-            color: var(--bg-dark);
-            font-size: 1.05rem;
+            font-size: 1.1rem;
+            border-bottom: 2px solid var(--border-color);
+        }
+
+        th:nth-child(2) {
+            background: rgba(0, 229, 204, 0.1);
+            color: var(--accent-teal);
+            position: relative;
+        }
+
+        th:nth-child(2)::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: var(--accent-teal);
         }
 
         td {
             padding: 1.25rem 1.5rem;
-            border-bottom: 1px solid rgba(232, 237, 245, 0.1);
+            border-bottom: 1px solid var(--border-color);
+            color: var(--text-secondary);
         }
 
-        tr:last-child td {
-            border-bottom: none;
-        }
-
-        tbody tr:hover {
-            background: rgba(0, 201, 177, 0.05);
-        }
-
-        .comparison-table {
-            margin-top: 3rem;
-        }
-
-        .comparison-table th {
-            text-align: center;
-        }
-
-        .comparison-table td {
-            text-align: center;
-        }
-
-        .comparison-table td:first-child {
-            text-align: left;
+        td:nth-child(2) {
+            background: rgba(0, 229, 204, 0.05);
+            color: var(--text-primary);
             font-weight: 600;
         }
 
-        .highlight-col {
-            background: rgba(0, 201, 177, 0.1);
-            border-left: 3px solid var(--primary);
-            border-right: 3px solid var(--primary);
+        tr:hover td {
+            background: rgba(255, 255, 255, 0.02);
         }
 
-        .apps-grid {
+        tr:hover td:nth-child(2) {
+            background: rgba(0, 229, 204, 0.1);
+        }
+
+        /* Applications */
+        .applications-grid {
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
             gap: 1.5rem;
-            margin-top: 3rem;
+            max-width: 1400px;
+            margin: 0 auto;
         }
 
         .app-card {
-            background: var(--card-bg);
+            background: var(--bg-secondary);
             padding: 2rem;
-            border-radius: 12px;
-            border: 2px solid var(--card-border);
+            border-radius: 10px;
+            border: 1px solid var(--border-color);
             text-align: center;
             transition: all 0.3s ease;
+            cursor: pointer;
         }
 
         .app-card:hover {
-            border-color: var(--primary);
+            background: var(--card-hover);
             transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 229, 204, 0.15);
+            border-color: var(--accent-teal);
         }
 
-        .app-card .icon {
-            font-size: 2.5rem;
+        .app-icon {
+            font-size: 3rem;
             margin-bottom: 1rem;
-            display: block;
         }
 
-        .app-card h4 {
-            font-size: 1.1rem;
-            margin-bottom: 0.75rem;
-            color: var(--primary);
+        .app-card h3 {
+            font-size: 1.2rem;
             font-weight: 700;
         }
 
-        .app-card p {
-            font-size: 0.9rem;
-            color: rgba(232, 237, 245, 0.7);
-            line-height: 1.5;
+        /* Pricing & Reservation */
+        .pricing {
+            background: var(--bg-secondary);
         }
 
-        .pricing-grid {
+        .pricing-content {
+            max-width: 1000px;
+            margin: 0 auto;
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 2rem;
-            margin-top: 3rem;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: start;
         }
 
-        .pricing-card {
-            background: var(--card-bg);
-            padding: 3rem 2.5rem;
-            border-radius: 16px;
-            border: 2px solid var(--card-border);
+        .price-display {
             text-align: center;
-            position: relative;
-            transition: all 0.3s ease;
         }
 
-        .pricing-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 50px rgba(0, 201, 177, 0.2);
-        }
-
-        .pricing-card.featured {
-            border-color: var(--primary);
-            background: linear-gradient(135deg, rgba(0, 201, 177, 0.1) 0%, var(--card-bg) 100%);
-            transform: scale(1.05);
-        }
-
-        .pricing-card.featured::before {
-            content: "FEATURED";
-            position: absolute;
-            top: -15px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: var(--primary);
-            color: var(--bg-dark);
-            padding: 0.5rem 1.5rem;
-            border-radius: 50px;
-            font-size: 0.75rem;
-            font-weight: 800;
-            letter-spacing: 1px;
-        }
-
-        .pricing-card h3 {
-            font-size: 1.75rem;
-            margin-bottom: 1rem;
-            font-weight: 800;
-        }
-
-        .pricing-card .price {
-            font-size: 2.5rem;
+        .price-main {
+            font-size: 4rem;
             font-weight: 900;
-            color: var(--primary);
+            color: var(--accent-teal);
             margin-bottom: 0.5rem;
+            line-height: 1;
         }
 
-        .pricing-card .capacity {
-            font-size: 1.25rem;
-            color: rgba(232, 237, 245, 0.8);
+        .price-label {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
             margin-bottom: 2rem;
         }
 
-        .pricing-card ul {
-            list-style: none;
-            margin-bottom: 2.5rem;
-            text-align: left;
-        }
-
-        .pricing-card li {
-            padding: 0.75rem 0;
-            border-bottom: 1px solid rgba(232, 237, 245, 0.1);
-            font-size: 0.95rem;
-        }
-
-        .pricing-card li:last-child {
-            border-bottom: none;
-        }
-
-        .pricing-note {
-            text-align: center;
-            margin-top: 2rem;
-            font-size: 0.9rem;
-            color: rgba(232, 237, 245, 0.6);
-            font-style: italic;
-        }
-
-        .cta-banner {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
-            padding: 5rem 2rem;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .cta-banner::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
-            animation: rotate 20s linear infinite;
-        }
-
-        @keyframes rotate {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-
-        .cta-banner .container {
-            position: relative;
-            z-index: 1;
-        }
-
-        .cta-banner h2 {
-            font-size: 3rem;
-            font-weight: 900;
-            color: var(--bg-dark);
-            margin-bottom: 1rem;
-            letter-spacing: -1px;
-        }
-
-        .cta-banner p {
-            font-size: 1.25rem;
-            color: rgba(5, 13, 26, 0.8);
-            margin-bottom: 2.5rem;
-            font-weight: 500;
-        }
-
-        .btn-cta-banner {
-            background: var(--bg-dark);
-            color: var(--text);
-            padding: 1.25rem 3rem;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 700;
-            font-size: 1.1rem;
-            display: inline-block;
-            transition: all 0.3s ease;
-            border: 2px solid var(--bg-dark);
-        }
-
-        .btn-cta-banner:hover {
-            background: transparent;
-            color: var(--bg-dark);
-            transform: translateY(-3px);
-            box-shadow: 0 10px 30px rgba(5, 13, 26, 0.3);
-        }
-
-        .contact-form {
-            max-width: 800px;
-            margin: 3rem auto 0;
-            background: var(--card-bg);
-            padding: 3rem;
-            border-radius: 16px;
-            border: 2px solid var(--card-border);
-        }
-
-        .form-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1.5rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .form-group {
-            display: flex;
-            flex-direction: column;
-        }
-
-        .form-group.full {
-            grid-column: 1 / -1;
-        }
-
-        label {
-            margin-bottom: 0.5rem;
-            font-weight: 600;
-            font-size: 0.95rem;
-            color: var(--primary);
-        }
-
-        input, select, textarea {
-            background: rgba(5, 13, 26, 0.5);
-            border: 2px solid rgba(232, 237, 245, 0.2);
-            border-radius: 8px;
-            padding: 0.875rem 1.25rem;
-            color: var(--text);
-            font-family: 'Inter', sans-serif;
-            font-size: 1rem;
-            transition: all 0.3s ease;
-        }
-
-        input:focus, select:focus, textarea:focus {
-            outline: none;
-            border-color: var(--primary);
-            box-shadow: 0 0 0 3px rgba(0, 201, 177, 0.1);
-        }
-
-        textarea {
-            resize: vertical;
-            min-height: 150px;
-        }
-
-        .submit-btn {
-            background: var(--primary);
-            color: var(--bg-dark);
-            padding: 1.25rem 3rem;
-            border: 2px solid var(--primary);
-            border-radius: 8px;
-            font-weight: 700;
-            font-size: 1.1rem;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            width: 100%;
-            margin-top: 1rem;
-        }
-
-        .submit-btn:hover {
-            background: transparent;
-            color: var(--primary);
-            transform: translateY(-2px);
-        }
-
-        footer {
-            background: rgba(13, 31, 53, 0.6);
-            padding: 4rem 2rem 2rem;
-            border-top: 1px solid var(--card-border);
-        }
-
-        .footer-container {
-            max-width: 1400px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 2fr 1fr 1fr;
-            gap: 4rem;
+        .price-net {
+            background: rgba(0, 229, 204, 0.1);
+            border: 2px solid var(--accent-teal);
+            border-radius: 10px;
+            padding: 1.5rem;
             margin-bottom: 3rem;
         }
 
-        .footer-brand h3 {
-            font-size: 1.75rem;
+        .price-net-value {
+            font-size: 2.5rem;
             font-weight: 800;
-            color: var(--primary);
+            color: var(--accent-teal);
+            margin-bottom: 0.5rem;
+        }
+
+        .price-net-label {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        .checklist {
+            list-style: none;
+            margin-bottom: 2rem;
+        }
+
+        .checklist li {
+            padding: 0.75rem 0;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            color: var(--text-secondary);
+        }
+
+        .checklist li::before {
+            content: "✓";
+            color: var(--accent-teal);
+            font-weight: 900;
+            font-size: 1.3rem;
+            flex-shrink: 0;
+        }
+
+        .reservation-box {
+            background: linear-gradient(135deg, var(--bg-tertiary) 0%, var(--bg-primary) 100%);
+            border: 2px solid var(--accent-teal);
+            border-radius: 12px;
+            padding: 3rem;
+            text-align: center;
+        }
+
+        .reservation-box h3 {
+            font-size: 2rem;
             margin-bottom: 1rem;
+            font-weight: 800;
         }
 
-        .footer-brand p {
-            color: rgba(232, 237, 245, 0.7);
-            margin-bottom: 1.5rem;
+        .reservation-box p {
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            font-size: 1.05rem;
         }
 
-        .footer-links h4 {
-            font-size: 1.1rem;
+        .reservation-box .btn-primary {
+            width: 100%;
+            font-size: 1.3rem;
+            padding: 1.25rem;
+        }
+
+        .deposit-note {
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border-color);
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        /* FAQ */
+        .faq {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            margin-bottom: 1rem;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .faq-item:hover {
+            border-color: var(--accent-teal);
+        }
+
+        .faq-question {
+            padding: 1.5rem 2rem;
+            font-size: 1.2rem;
             font-weight: 700;
-            margin-bottom: 1.5rem;
-            color: var(--primary);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            user-select: none;
         }
 
-        .footer-links ul {
+        .faq-question::after {
+            content: "+";
+            font-size: 2rem;
+            color: var(--accent-teal);
+            transition: transform 0.3s ease;
+        }
+
+        .faq-item.active .faq-question::after {
+            transform: rotate(45deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+            color: var(--text-secondary);
+            line-height: 1.8;
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 500px;
+            padding: 0 2rem 1.5rem;
+        }
+
+        /* Final CTA */
+        .final-cta {
+            background: linear-gradient(135deg, var(--accent-dark) 0%, var(--accent-teal) 100%);
+            padding: 5rem 5%;
+            text-align: center;
+        }
+
+        .final-cta h2 {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-weight: 900;
+            color: var(--bg-primary);
+            margin-bottom: 2rem;
+        }
+
+        .final-cta .btn-primary {
+            background: var(--bg-primary);
+            color: var(--accent-teal);
+            font-size: 1.3rem;
+            padding: 1.25rem 3rem;
+        }
+
+        .final-cta .btn-primary:hover {
+            background: var(--bg-secondary);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--bg-primary);
+            border-top: 1px solid var(--border-color);
+            padding: 4rem 5% 2rem;
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-section h4 {
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .footer-section ul {
             list-style: none;
         }
 
-        .footer-links a {
-            color: rgba(232, 237, 245, 0.7);
+        .footer-section a {
+            color: var(--text-secondary);
             text-decoration: none;
             display: block;
             padding: 0.5rem 0;
             transition: color 0.3s ease;
         }
 
-        .footer-links a:hover {
-            color: var(--primary);
+        .footer-section a:hover {
+            color: var(--accent-teal);
         }
 
         .footer-bottom {
-            text-align: center;
+            max-width: 1400px;
+            margin: 0 auto;
             padding-top: 2rem;
-            border-top: 1px solid rgba(232, 237, 245, 0.1);
-            color: rgba(232, 237, 245, 0.5);
+            border-top: 1px solid var(--border-color);
+            text-align: center;
+            color: var(--text-secondary);
             font-size: 0.9rem;
         }
 
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+        .disclaimer {
+            margin-top: 1rem;
+            font-size: 0.8rem;
+            line-height: 1.6;
+            color: #666;
         }
 
-        @media (max-width: 1024px) {
+        /* Responsive */
+        @media (max-width: 768px) {
             .nav-links {
                 position: fixed;
                 top: 0;
                 right: -100%;
-                width: 300px;
+                width: 70%;
                 height: 100vh;
-                background: rgba(5, 13, 26, 0.98);
+                background: rgba(10, 10, 10, 0.98);
+                backdrop-filter: blur(10px);
                 flex-direction: column;
-                padding: 6rem 2rem 2rem;
+                justify-content: center;
                 gap: 2rem;
                 transition: right 0.3s ease;
-                border-left: 1px solid var(--card-border);
+                border-left: 1px solid var(--border-color);
             }
 
             .nav-links.active {
@@ -964,487 +840,547 @@
                 display: flex;
             }
 
-            .hero-content {
-                grid-template-columns: 1fr;
-                text-align: center;
-            }
-
-            .battery-viz {
-                margin: 0 auto;
-            }
-
-            .hero-ctas {
-                justify-content: center;
-            }
-
-            .hero-stats {
-                justify-content: center;
-            }
-
-            h1 {
-                font-size: 3rem;
-            }
-
-            .features-grid {
+            .stats-bar {
                 grid-template-columns: repeat(2, 1fr);
+                gap: 2rem;
             }
 
-            .split-section {
-                grid-template-columns: 1fr;
-            }
-
-            .apps-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .pricing-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .pricing-card.featured {
-                transform: scale(1);
-            }
-
-            .footer-container {
+            .pricing-content {
                 grid-template-columns: 1fr;
                 gap: 2rem;
             }
-        }
 
-        @media (max-width: 640px) {
-            h1 {
-                font-size: 2.25rem;
-            }
-
-            .section-title {
-                font-size: 2rem;
-            }
-
-            .hero-subtitle {
-                font-size: 1.05rem;
-            }
-
-            .hero-ctas {
-                flex-direction: column;
-                width: 100%;
-            }
-
-            .btn-primary, .btn-outline {
-                width: 100%;
-                text-align: center;
-            }
-
-            .features-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .apps-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .form-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .cta-banner h2 {
-                font-size: 2rem;
-            }
-
-            .cta-banner p {
-                font-size: 1.05rem;
-            }
-
-            .proof-container {
-                flex-direction: column;
-                gap: 1.5rem;
-            }
-
-            .table-container {
+            .comparison-table {
                 font-size: 0.85rem;
             }
 
             th, td {
-                padding: 0.875rem;
+                padding: 1rem;
             }
+
+            .price-main {
+                font-size: 2.5rem;
+            }
+        }
+
+        /* Fade-in animation */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
     </style>
 </head>
 <body>
-    <nav class="navbar" id="navbar">
-        <div class="nav-container">
-            <a href="#" class="nav-logo">⚡ GENII BATTERIES</a>
-            <ul class="nav-links" id="navLinks">
-                <li><a href="#features">Features</a></li>
-                <li><a href="#specs">Specs</a></li>
-                <li><a href="#compare">Compare</a></li>
-                <li><a href="#pricing">Pricing</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-            <a href="#contact" class="nav-cta">Get a Quote</a>
-            <div class="hamburger" id="hamburger">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
+    <!-- Navigation -->
+    <nav id="navbar">
+        <div class="nav-logo">GENII BATTERIES</div>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="#technology">Technology</a></li>
+            <li><a href="#applications">Applications</a></li>
+            <li><a href="#compare">Compare</a></li>
+            <li><a href="#reserve">Order</a></li>
+            <li><a href="#reserve" class="nav-cta">Reserve — $100</a></li>
+        </ul>
+        <div class="hamburger" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
         </div>
     </nav>
 
+    <!-- Hero Section -->
     <section class="hero">
-        <div class="hero-background">
-            <div class="orb orb-1"></div>
-            <div class="orb orb-2"></div>
-            <div class="orb orb-3"></div>
-        </div>
+        <canvas id="particle-canvas"></canvas>
         <div class="hero-content">
-            <div class="hero-text">
-                <span class="badge">Powered by Salgenx Technology</span>
-                <h1>The Battery That<br><span style="color: #00C9B1">Never Burns Out</span></h1>
-                <p class="hero-subtitle">Grid-scale saltwater flow battery. 3 MWh of clean, non-flammable, self-healing energy storage — built for under $300,000.</p>
-                <div class="hero-ctas">
-                    <a href="#pricing" class="btn-primary">Order the S3000</a>
-                    <a href="#specs" class="btn-outline">Download Specs</a>
-                </div>
-                <div class="hero-stats">
-                    <span class="stat">3 MWh Capacity</span>
-                    <span class="stat">$35/kWh IRS Tax Credit</span>
-                    <span class="stat">25+ Year Lifespan</span>
-                </div>
+            <h1>Grid-Scale Power.<br>Delivered in Weeks.</h1>
+            <p class="hero-subtitle">The G3000: 3 MWh saltwater flow battery built for commercial & industrial facilities. Non-flammable, self-healing, and available now.</p>
+            <div class="hero-ctas">
+                <a href="#reserve" class="btn-primary">Reserve Your System — $100</a>
+                <a href="#specs" class="btn-secondary">See Specs</a>
             </div>
-            <div class="battery-viz">
-                <div class="battery-container">
-                    <div class="battery-terminal"></div>
-                    <div class="battery-level"></div>
-                    <div class="battery-bars">
-                        <div class="battery-bar"></div>
-                        <div class="battery-bar"></div>
-                        <div class="battery-bar"></div>
-                        <div class="battery-bar"></div>
-                    </div>
-                </div>
+            <div class="trust-badges">
+                <div class="badge">Non-Flammable</div>
+                <div class="badge">2–6 Week Delivery</div>
+                <div class="badge">$150K IRS Credit</div>
+                <div class="badge">25+ Year Lifespan</div>
             </div>
         </div>
     </section>
 
-    <div class="social-proof">
-        <div class="proof-container">
-            <div class="proof-item">$1.2B in Pre-Orders</div>
-            <div class="proof-item">Used in 14 Countries</div>
-            <div class="proof-item">91% Round-Trip Efficiency</div>
-            <div class="proof-item">Non-Flammable Electrolyte</div>
+    <!-- Stats Bar -->
+    <section class="stats-bar">
+        <div class="stat" data-target="3000">
+            <div class="stat-number">0</div>
+            <div class="stat-label">Kilowatt Hours</div>
         </div>
-    </div>
+        <div class="stat" data-target="200">
+            <div class="stat-number">$0</div>
+            <div class="stat-label">Per kWh</div>
+        </div>
+        <div class="stat" data-target="6">
+            <div class="stat-number">0</div>
+            <div class="stat-label">Weeks Delivery (max)</div>
+        </div>
+        <div class="stat" data-target="150000">
+            <div class="stat-number">$0</div>
+            <div class="stat-label">IRS Tax Credit</div>
+        </div>
+    </section>
 
-    <section id="problem-solution">
-        <div class="container">
-            <div class="split-section">
-                <div class="split-card problem">
-                    <h3>The Problem with Lithium</h3>
-                    <ul>
-                        <li>Fire risk and thermal runaway hazards</li>
-                        <li>Toxic materials requiring special disposal</li>
-                        <li>Degradation reducing capacity over time</li>
-                        <li>High cost per kWh at grid scale</li>
-                        <li>Supply chain risk and geopolitical dependencies</li>
-                    </ul>
-                </div>
-                <div class="split-card solution">
-                    <h3>The Genii Difference</h3>
-                    <ul>
-                        <li>Saltwater electrolyte (non-toxic and safe)</li>
-                        <li>Self-healing electrodes extend service life</li>
-                        <li>Simultaneous thermal and electrical storage</li>
-                        <li>AI-tunable revenue logic maximizes ROI</li>
-                        <li>Under $100/kWh all-in cost at scale</li>
-                    </ul>
-                </div>
+    <!-- Problem Section -->
+    <section class="problem" id="problem">
+        <div class="section-header">
+            <h2>Your Facility Is One Outage Away From Lost Revenue</h2>
+            <p>Energy costs are rising. Grid reliability is falling. And lithium batteries bring fire risk to your property.</p>
+        </div>
+        <div class="pain-points">
+            <div class="pain-card fade-in">
+                <div class="pain-icon">🔥</div>
+                <h3>Lithium Fire Risk</h3>
+                <p>Thermal runaway incidents cost millions in damage and insurance premiums. One battery fire can shut down your entire operation.</p>
+            </div>
+            <div class="pain-card fade-in">
+                <div class="pain-icon">⚡</div>
+                <h3>Grid Outages</h3>
+                <p>Every hour of downtime equals lost revenue. Summer demand peaks and winter storms leave facilities vulnerable.</p>
+            </div>
+            <div class="pain-card fade-in">
+                <div class="pain-icon">💸</div>
+                <h3>Energy Cost Bleeding</h3>
+                <p>Peak demand charges can triple your electricity bill. Without storage, you're paying retail rates 24/7.</p>
             </div>
         </div>
     </section>
 
-    <section id="features">
-        <div class="container">
-            <h2 class="section-title">Revolutionary Technology</h2>
-            <div class="features-grid">
-                <div class="feature-card">
-                    <span class="feature-icon">⚡</span>
-                    <h3>Grid-Scale Power Storage</h3>
-                    <p>Store up to 3-6 MWh using pre-made shipping containers as tanks. Number up to any GigaWatt array.</p>
-                </div>
-                <div class="feature-card">
-                    <span class="feature-icon">🔥</span>
-                    <h3>Fire Suppression Built-In</h3>
-                    <p>Saltwater electrolyte doubles as fire suppressant. Deploy in data centers, warehouses, and urban environments safely.</p>
-                </div>
-                <div class="feature-card">
-                    <span class="feature-icon">♨️</span>
-                    <h3>Thermal Energy Co-Storage</h3>
-                    <p>Simultaneously store thermal energy alongside electrical — ideal for cogeneration and HVAC optimization.</p>
-                </div>
-                <div class="feature-card">
-                    <span class="feature-icon">💧</span>
-                    <h3>Integrated Desalination</h3>
-                    <p>Process saltwater as a revenue stream. The same system that stores energy can produce fresh water on demand.</p>
-                </div>
-                <div class="feature-card">
-                    <span class="feature-icon">🧠</span>
-                    <h3>AI Revenue Logic</h3>
-                    <p>On-board AI selects between charge, discharge, thermal storage, or desalination based on real-time market pricing.</p>
-                </div>
-                <div class="feature-card">
-                    <span class="feature-icon">🔄</span>
-                    <h3>Self-Healing Electrodes</h3>
-                    <p>Zinc-based electrode material regenerates during charge cycles, dramatically extending service life.</p>
-                </div>
+    <!-- Solution Section -->
+    <section id="technology">
+        <div class="section-header">
+            <h2>Safe. Powerful. Fast.</h2>
+            <p>The G3000 eliminates fire risk while delivering grid-scale capacity in weeks, not years.</p>
+        </div>
+        <div class="solution-grid">
+            <div class="solution-card fade-in">
+                <div class="solution-icon">🌊</div>
+                <h3>SAFE</h3>
+                <p>Saltwater chemistry means zero fire risk. No thermal runaway. No explosion hazard. Just stable, aqueous electrolyte that can't ignite.</p>
+            </div>
+            <div class="solution-card fade-in">
+                <div class="solution-icon">⚙️</div>
+                <h3>POWERFUL</h3>
+                <p>3 MWh capacity with 91% round-trip efficiency. Self-healing electrodes extend lifespan beyond 25 years with minimal degradation.</p>
+            </div>
+            <div class="solution-card fade-in">
+                <div class="solution-icon">🚀</div>
+                <h3>FAST</h3>
+                <p>2–6 week delivery vs Tesla's 18+ month backlog. Reserve today, deploy next month. Start saving immediately.</p>
             </div>
         </div>
     </section>
 
+    <!-- How It Works -->
+    <section class="how-it-works">
+        <div class="section-header">
+            <h2>From Reservation to Revenue in 6 Weeks</h2>
+        </div>
+        <div class="steps">
+            <div class="step fade-in">
+                <div class="step-number">1</div>
+                <h3>Reserve</h3>
+                <p>$100 refundable deposit holds your production slot</p>
+            </div>
+            <div class="step fade-in">
+                <div class="step-number">2</div>
+                <h3>Deposit</h3>
+                <p>50% down payment ($300K) secures build and shipping</p>
+            </div>
+            <div class="step fade-in">
+                <div class="step-number">3</div>
+                <h3>Build & Ship</h3>
+                <p>Your G3000 is manufactured and delivered in 2–6 weeks</p>
+            </div>
+            <div class="step fade-in">
+                <div class="step-number">4</div>
+                <h3>Connect & Power</h3>
+                <p>Professional installation and grid connection—start saving day one</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tech Specs -->
     <section id="specs">
-        <div class="container">
-            <h2 class="section-title">S3000 Technical Specifications</h2>
-            <div class="table-container">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Specification</th>
-                            <th>Value</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr><td>System Model</td><td>Salgenx S3000</td></tr>
-                        <tr><td>Nominal Capacity</td><td>3,000 kWh (3 MWh)</td></tr>
-                        <tr><td>System Voltage</td><td>48V (custom available)</td></tr>
-                        <tr><td>Build Cost</td><td>Under $300,000</td></tr>
-                        <tr><td>IRS Battery Tax Credit</td><td>$35/kWh = $105,000 per unit</td></tr>
-                        <tr><td>Round-Trip Efficiency</td><td>~91%</td></tr>
-                        <tr><td>Discharge Duration</td><td>6+ hours (held indefinitely)</td></tr>
-                        <tr><td>Electrolyte</td><td>Saltwater + counter electrolyte</td></tr>
-                        <tr><td>Electrode Material</td><td>Zinc-based (low cost)</td></tr>
-                        <tr><td>Container Config</td><td>Shipping containers or over-road tankers</td></tr>
-                        <tr><td>Build Time</td><td>6-12 months from licensed manufacturer</td></tr>
-                        <tr><td>Lifespan</td><td>25+ years</td></tr>
-                    </tbody>
-                </table>
+        <div class="section-header">
+            <h2>Technical Specifications</h2>
+        </div>
+        <div class="specs-grid">
+            <div class="spec-card fade-in">
+                <div class="spec-label">Capacity</div>
+                <div class="spec-value">3,000 kWh</div>
+            </div>
+            <div class="spec-card fade-in">
+                <div class="spec-label">Chemistry</div>
+                <div class="spec-value">Na-Flow</div>
+            </div>
+            <div class="spec-card fade-in">
+                <div class="spec-label">Efficiency</div>
+                <div class="spec-value">91%</div>
+            </div>
+            <div class="spec-card fade-in">
+                <div class="spec-label">Discharge</div>
+                <div class="spec-value">6 hours</div>
+            </div>
+            <div class="spec-card fade-in">
+                <div class="spec-label">Self-Healing</div>
+                <div class="spec-value">Yes</div>
+            </div>
+            <div class="spec-card fade-in">
+                <div class="spec-label">Fire Risk</div>
+                <div class="spec-value">None</div>
+            </div>
+            <div class="spec-card fade-in">
+                <div class="spec-label">Lifespan</div>
+                <div class="spec-value">25+ years</div>
+            </div>
+            <div class="spec-card fade-in">
+                <div class="spec-label">Footprint</div>
+                <div class="spec-value">1 Container</div>
+            </div>
+            <div class="spec-card fade-in">
+                <div class="spec-label">Scalable</div>
+                <div class="spec-value">Yes</div>
+            </div>
+            <div class="spec-card fade-in">
+                <div class="spec-label">Build Cost</div>
+                <div class="spec-value">&lt; $300K</div>
+            </div>
+            <div class="spec-card fade-in">
+                <div class="spec-label">Retail</div>
+                <div class="spec-value">$600,000</div>
+            </div>
+            <div class="spec-card fade-in">
+                <div class="spec-label">IRS Credit</div>
+                <div class="spec-value">$150,000</div>
             </div>
         </div>
     </section>
 
-    <section id="compare">
-        <div class="container">
-            <h2 class="section-title">How Genii Stacks Up</h2>
-            <div class="table-container comparison-table">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Criteria</th>
-                            <th class="highlight-col">Genii S3000</th>
-                            <th>Tesla Megapack</th>
-                            <th>Vanadium Flow</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr><td>Cost per kWh</td><td class="highlight-col">&lt;$100</td><td>~$250</td><td>~$300</td></tr>
-                        <tr><td>Fire Risk</td><td class="highlight-col">None (saltwater)</td><td>High (lithium)</td><td>Low</td></tr>
-                        <tr><td>Lifespan</td><td class="highlight-col">25+ years</td><td>10-15 years</td><td>20+ years</td></tr>
-                        <tr><td>IRS Tax Credit</td><td class="highlight-col">$35/kWh</td><td>$35/kWh</td><td>$35/kWh</td></tr>
-                        <tr><td>Thermal Storage</td><td class="highlight-col">Yes</td><td>No</td><td>No</td></tr>
-                        <tr><td>Desalination</td><td class="highlight-col">Yes</td><td>No</td><td>No</td></tr>
-                        <tr><td>AI Revenue Logic</td><td class="highlight-col">Yes</td><td>No</td><td>No</td></tr>
-                        <tr><td>Self-Healing</td><td class="highlight-col">Yes</td><td>No</td><td>Partial</td></tr>
-                        <tr><td>Build Cost (3MWh)</td><td class="highlight-col">&lt;$300K</td><td>~$750K</td><td>~$900K</td></tr>
-                    </tbody>
-                </table>
-            </div>
+    <!-- Comparison Table -->
+    <section class="comparison" id="compare">
+        <div class="section-header">
+            <h2>How We Compare</h2>
+            <p>Best value per kWh. Fastest delivery. Zero fire risk.</p>
+        </div>
+        <div class="comparison-table">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Feature</th>
+                        <th>Genii G3000</th>
+                        <th>Tesla Megapack 3</th>
+                        <th>Vanadium Flow</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Price</td>
+                        <td>$600,000</td>
+                        <td>~$1,300,000</td>
+                        <td>~$900K–$1.2M</td>
+                    </tr>
+                    <tr>
+                        <td>Capacity</td>
+                        <td>3 MWh</td>
+                        <td>5 MWh</td>
+                        <td>2–4 MWh</td>
+                    </tr>
+                    <tr>
+                        <td>Price per kWh</td>
+                        <td>$200</td>
+                        <td>~$260</td>
+                        <td>~$300–$400</td>
+                    </tr>
+                    <tr>
+                        <td>Delivery</td>
+                        <td>2–6 weeks</td>
+                        <td>18+ months</td>
+                        <td>6–12 months</td>
+                    </tr>
+                    <tr>
+                        <td>Fire Risk</td>
+                        <td>None</td>
+                        <td>Lithium (low)</td>
+                        <td>None</td>
+                    </tr>
+                    <tr>
+                        <td>Lifespan</td>
+                        <td>25+ years</td>
+                        <td>15–20 years</td>
+                        <td>20+ years</td>
+                    </tr>
+                    <tr>
+                        <td>Self-Healing</td>
+                        <td>Yes</td>
+                        <td>No</td>
+                        <td>Partial</td>
+                    </tr>
+                    <tr>
+                        <td>IRS Section 48C</td>
+                        <td>$150,000</td>
+                        <td>Eligible*</td>
+                        <td>Eligible*</td>
+                    </tr>
+                    <tr>
+                        <td>Scalable</td>
+                        <td>Yes</td>
+                        <td>Yes</td>
+                        <td>Yes</td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
     </section>
 
+    <!-- Applications -->
     <section id="applications">
-        <div class="container">
-            <h2 class="section-title">Built for Every Scale</h2>
-            <div class="apps-grid">
-                <div class="app-card">
-                    <span class="icon">☀️</span>
-                    <h4>Solar/Wind Farms</h4>
-                    <p>Store renewable energy for 24/7 grid reliability</p>
-                </div>
-                <div class="app-card">
-                    <span class="icon">💻</span>
-                    <h4>Data Centers</h4>
-                    <p>Non-flammable backup power with thermal management</p>
-                </div>
-                <div class="app-card">
-                    <span class="icon">🏙️</span>
-                    <h4>Municipal Microgrids</h4>
-                    <p>Resilient power infrastructure for communities</p>
-                </div>
-                <div class="app-card">
-                    <span class="icon">🔌</span>
-                    <h4>EV Charging Hubs</h4>
-                    <p>Peak shaving and demand charge reduction</p>
-                </div>
-                <div class="app-card">
-                    <span class="icon">🏭</span>
-                    <h4>Industrial Facilities</h4>
-                    <p>Load balancing and backup power security</p>
-                </div>
-                <div class="app-card">
-                    <span class="icon">🌾</span>
-                    <h4>Agricultural Operations</h4>
-                    <p>Irrigation pumping and cold storage optimization</p>
-                </div>
-                <div class="app-card">
-                    <span class="icon">📡</span>
-                    <h4>Telecom Infrastructure</h4>
-                    <p>Reliable backup for cell towers and network hubs</p>
-                </div>
-                <div class="app-card">
-                    <span class="icon">⛽</span>
-                    <h4>Oil & Gas Sites</h4>
-                    <p>Remote power storage for drilling operations</p>
-                </div>
+        <div class="section-header">
+            <h2>Built for Commercial & Industrial</h2>
+            <p>Power-hungry facilities need reliable, safe energy storage.</p>
+        </div>
+        <div class="applications-grid">
+            <div class="app-card fade-in">
+                <div class="app-icon">🌾</div>
+                <h3>Farms</h3>
+            </div>
+            <div class="app-card fade-in">
+                <div class="app-icon">🐄</div>
+                <h3>Dairies</h3>
+            </div>
+            <div class="app-card fade-in">
+                <div class="app-icon">🏭</div>
+                <h3>Factories</h3>
+            </div>
+            <div class="app-card fade-in">
+                <div class="app-icon">📦</div>
+                <h3>Warehouses</h3>
+            </div>
+            <div class="app-card fade-in">
+                <div class="app-icon">💾</div>
+                <h3>Data Centers</h3>
+            </div>
+            <div class="app-card fade-in">
+                <div class="app-icon">🌿</div>
+                <h3>Cannabis</h3>
+            </div>
+            <div class="app-card fade-in">
+                <div class="app-icon">🍺</div>
+                <h3>Breweries</h3>
+            </div>
+            <div class="app-card fade-in">
+                <div class="app-icon">🔌</div>
+                <h3>EV Charging</h3>
             </div>
         </div>
     </section>
 
-    <section id="pricing">
-        <div class="container">
-            <h2 class="section-title">Choose Your System</h2>
-            <div class="pricing-grid">
-                <div class="pricing-card">
-                    <h3>S3000 Starter</h3>
-                    <div class="price">~$300,000</div>
-                    <div class="capacity">3 MWh</div>
-                    <ul>
-                        <li>Single container config</li>
-                        <li>$105K tax credit</li>
-                        <li>All core features</li>
-                        <li>6-12 month build time</li>
-                        <li>25+ year lifespan</li>
-                    </ul>
-                    <a href="#contact" class="btn-outline">Inquire Now</a>
-                </div>
-                <div class="pricing-card featured">
-                    <h3>S6000 PRO</h3>
-                    <div class="price">~$550,000</div>
-                    <div class="capacity">6 MWh</div>
-                    <ul>
-                        <li>Dual container config</li>
-                        <li>$210K tax credit</li>
-                        <li>All features included</li>
-                        <li>Priority build scheduling</li>
-                        <li>Extended support package</li>
-                    </ul>
-                    <a href="#contact" class="btn-primary">Order Now</a>
-                </div>
-                <div class="pricing-card">
-                    <h3>Technology Dev Kit</h3>
-                    <div class="price">$500,000</div>
-                    <div class="capacity">Full IP</div>
-                    <ul>
-                        <li>Full IP ownership</li>
-                        <li>Own cathode development</li>
-                        <li>License or sell Salgenx name</li>
-                        <li>Manufacturing documentation</li>
-                        <li>Technical support included</li>
-                    </ul>
-                    <a href="#contact" class="btn-outline">Learn More</a>
-                </div>
-            </div>
-            <p class="pricing-note">*IRS Section 48E Battery Tax Credit applied at time of purchase. Credits may be sold to unrelated parties.</p>
+    <!-- Pricing & Reservation -->
+    <section class="pricing" id="reserve">
+        <div class="section-header">
+            <h2>Pricing & Reservation</h2>
         </div>
-    </section>
-
-    <div class="cta-banner">
-        <div class="container">
-            <h2>The Company That Controls Battery Technology Controls the World.</h2>
-            <p>Join $1.2B in pre-orders. Secure your Genii S3000 today.</p>
-            <a href="#contact" class="btn-cta-banner">Request a Quote</a>
-        </div>
-    </div>
-
-    <section id="contact">
-        <div class="container">
-            <h2 class="section-title">Start Your Project</h2>
-            <form class="contact-form" action="#" method="POST">
-                <div class="form-grid">
-                    <div class="form-group">
-                        <label for="name">Full Name</label>
-                        <input type="text" id="name" name="name" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="email">Email</label>
-                        <input type="email" id="email" name="email" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="phone">Phone</label>
-                        <input type="tel" id="phone" name="phone" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="company">Company</label>
-                        <input type="text" id="company" name="company" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="project-type">Project Type</label>
-                        <select id="project-type" name="project-type" required>
-                            <option value="">Select...</option>
-                            <option value="utility">Utility/Grid</option>
-                            <option value="commercial">Commercial</option>
-                            <option value="industrial">Industrial</option>
-                            <option value="agricultural">Agricultural</option>
-                            <option value="other">Other</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="capacity">Estimated Capacity Needed</label>
-                        <select id="capacity" name="capacity" required>
-                            <option value="">Select...</option>
-                            <option value="1-3">1-3 MWh</option>
-                            <option value="3-6">3-6 MWh</option>
-                            <option value="6-10">6-10 MWh</option>
-                            <option value="10+">10+ MWh</option>
-                        </select>
-                    </div>
-                    <div class="form-group full">
-                        <label for="message">Message</label>
-                        <textarea id="message" name="message" required></textarea>
-                    </div>
+        <div class="pricing-content">
+            <div class="price-display">
+                <div class="price-main">$600,000</div>
+                <div class="price-label">Installed Price</div>
+                <div class="price-net">
+                    <div class="price-net-value">$450,000</div>
+                    <div class="price-net-label">Net Price After IRS 48C Credit</div>
                 </div>
-                <button type="submit" class="submit-btn">Send Inquiry</button>
-            </form>
-        </div>
-    </section>
-
-    <footer>
-        <div class="footer-container">
-            <div class="footer-brand">
-                <h3>⚡ GENII BATTERIES</h3>
-                <p>Clean Energy. No Compromise.</p>
-                <span class="badge">Powered by Salgenx Technology</span>
-            </div>
-            <div class="footer-links">
-                <h4>Quick Links</h4>
-                <ul>
-                    <li><a href="#features">Features</a></li>
-                    <li><a href="#specs">Specifications</a></li>
-                    <li><a href="#compare">Comparison</a></li>
-                    <li><a href="#pricing">Pricing</a></li>
+                <ul class="checklist">
+                    <li>3,000 kWh capacity</li>
+                    <li>Saltwater flow chemistry</li>
+                    <li>Professional installation</li>
+                    <li>Grid connection & commissioning</li>
+                    <li>25+ year warranty</li>
+                    <li>Remote monitoring system</li>
+                    <li>$150,000 IRS Section 48C credit</li>
+                    <li>2–6 week delivery</li>
                 </ul>
             </div>
-            <div class="footer-links">
-                <h4>Get in Touch</h4>
+            <div class="reservation-box">
+                <h3>Reserve Your G3000</h3>
+                <p>Limited production slots available. Secure your system with a refundable $100 reservation.</p>
+                <a href="mailto:sales@geniibatteries.com?subject=G3000%20Reservation%20-%20%24100&body=I%27d%20like%20to%20reserve%20a%20G3000%20system." class="btn-primary">Reserve Now — $100</a>
+                <div class="deposit-note">
+                    <strong>Next Step:</strong> After reservation, a 50% deposit ($300,000) secures your build slot and locks in 2–6 week delivery.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section>
+        <div class="section-header">
+            <h2>Frequently Asked Questions</h2>
+        </div>
+        <div class="faq">
+            <div class="faq-item">
+                <div class="faq-question">What is the IRS Section 48C tax credit?</div>
+                <div class="faq-answer">Section 48C provides a federal tax credit of $35 per kWh for qualifying energy storage systems. For the G3000 (3,000 kWh), that's $105,000 to $150,000 depending on your installation configuration. This is a direct credit against your federal tax liability.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">How safe is saltwater chemistry compared to lithium?</div>
+                <div class="faq-answer">Saltwater flow batteries use aqueous (water-based) electrolyte that cannot catch fire or explode. Unlike lithium-ion systems, there's no thermal runaway risk, no toxic gas release, and no need for expensive fire suppression systems. Your insurance premiums reflect this safety advantage.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">What does "self-healing electrodes" mean?</div>
+                <div class="faq-answer">Unlike lithium batteries that degrade with every charge cycle, saltwater flow batteries use liquid electrolyte that can be refreshed or replaced. The electrodes regenerate during operation, maintaining performance for 25+ years without significant capacity loss.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">Can I scale beyond 3 MWh?</div>
+                <div class="faq-answer">Yes. The G3000 is modular and can be paralleled with additional units to reach 6 MWh, 9 MWh, or higher. Each unit operates independently, so you can start with one and expand as your energy needs grow.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">What's included in the installation?</div>
+                <div class="faq-answer">Full turnkey installation includes: G3000 system delivery, foundation/pad preparation, electrical interconnection, grid synchronization, permitting support, utility approvals, remote monitoring setup, and operator training. You receive a fully commissioned, ready-to-operate system.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">Why is delivery so much faster than Tesla?</div>
+                <div class="faq-answer">We manufacture on-demand with lean inventory and shorter supply chains. Tesla's Megapack has an 18+ month backlog due to overwhelming demand. The G3000 uses simpler, more abundant materials (saltwater vs lithium), allowing us to scale production quickly without rare earth constraints.</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="final-cta">
+        <h2>Stop Renting Power. Start Owning It.</h2>
+        <a href="#reserve" class="btn-primary">Reserve Your G3000 — $100</a>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>GENII BATTERIES</h4>
+                <p style="color: var(--text-secondary); font-size: 0.9rem;">Commercial energy storage for the real world.</p>
+            </div>
+            <div class="footer-section">
+                <h4>Product</h4>
                 <ul>
-                    <li><a href="#contact">Contact Us</a></li>
-                    <li><a href="#contact">Request Quote</a></li>
-                    <li><a href="#specs">Download Specs</a></li>
+                    <li><a href="#specs">Specifications</a></li>
+                    <li><a href="#compare">Comparisons</a></li>
+                    <li><a href="#applications">Applications</a></li>
+                    <li><a href="#reserve">Pricing</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="#technology">Technology</a></li>
+                    <li><a href="mailto:sales@geniibatteries.com">Contact Sales</a></li>
+                    <li><a href="mailto:support@geniibatteries.com">Support</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Legal</h4>
+                <ul>
+                    <li><a href="#">Terms of Service</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Warranty</a></li>
                 </ul>
             </div>
         </div>
         <div class="footer-bottom">
             <p>&copy; 2026 Genii Batteries. All rights reserved.</p>
+            <p class="disclaimer">
+                * Tax credits subject to IRS qualification and approval. Consult your tax advisor. Delivery times are estimates and may vary based on location and permitting. Specifications subject to change. Price does not include site preparation, utility interconnection fees, or local permitting costs.
+            </p>
         </div>
     </footer>
 
     <script>
+        // Particle Canvas Animation
+        const canvas = document.getElementById('particle-canvas');
+        const ctx = canvas.getContext('2d');
+
+        function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+        resizeCanvas();
+        window.addEventListener('resize', resizeCanvas);
+
+        const particles = [];
+        const particleCount = 80;
+
+        class Particle {
+            constructor() {
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * canvas.height;
+                this.size = Math.random() * 2 + 0.5;
+                this.speedX = (Math.random() - 0.5) * 0.5;
+                this.speedY = (Math.random() - 0.5) * 0.5;
+                this.opacity = Math.random() * 0.5 + 0.2;
+            }
+
+            update() {
+                this.x += this.speedX;
+                this.y += this.speedY;
+
+                if (this.x > canvas.width) this.x = 0;
+                if (this.x < 0) this.x = canvas.width;
+                if (this.y > canvas.height) this.y = 0;
+                if (this.y < 0) this.y = canvas.height;
+            }
+
+            draw() {
+                ctx.fillStyle = `rgba(0, 229, 204, ${this.opacity})`;
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fill();
+            }
+        }
+
+        for (let i = 0; i < particleCount; i++) {
+            particles.push(new Particle());
+        }
+
+        function animateParticles() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            particles.forEach(particle => {
+                particle.update();
+                particle.draw();
+            });
+
+            // Connect nearby particles
+            for (let i = 0; i < particles.length; i++) {
+                for (let j = i + 1; j < particles.length; j++) {
+                    const dx = particles[i].x - particles[j].x;
+                    const dy = particles[i].y - particles[j].y;
+                    const distance = Math.sqrt(dx * dx + dy * dy);
+
+                    if (distance < 120) {
+                        ctx.strokeStyle = `rgba(0, 229, 204, ${0.15 * (1 - distance / 120)})`;
+                        ctx.lineWidth = 0.5;
+                        ctx.beginPath();
+                        ctx.moveTo(particles[i].x, particles[i].y);
+                        ctx.lineTo(particles[j].x, particles[j].y);
+                        ctx.stroke();
+                    }
+                }
+            }
+
+            requestAnimationFrame(animateParticles);
+        }
+
+        animateParticles();
+
+        // Navbar scroll effect
         const navbar = document.getElementById('navbar');
         window.addEventListener('scroll', () => {
             if (window.scrollY > 100) {
@@ -1454,41 +1390,113 @@
             }
         });
 
+        // Mobile menu toggle
         const hamburger = document.getElementById('hamburger');
         const navLinks = document.getElementById('navLinks');
+
         hamburger.addEventListener('click', () => {
-            hamburger.classList.toggle('active');
             navLinks.classList.toggle('active');
         });
 
+        // Close menu when clicking a link
         navLinks.querySelectorAll('a').forEach(link => {
             link.addEventListener('click', () => {
-                hamburger.classList.remove('active');
                 navLinks.classList.remove('active');
             });
         });
 
+        // Animated counter
+        const stats = document.querySelectorAll('.stat');
+        let hasAnimated = false;
+
         const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -100px 0px'
+            threshold: 0.5
         };
 
-        const observer = new IntersectionObserver((entries) => {
+        const statsObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting && !hasAnimated) {
+                    hasAnimated = true;
+                    stats.forEach((stat, index) => {
+                        setTimeout(() => {
+                            stat.classList.add('visible');
+                            animateCounter(stat);
+                        }, index * 150);
+                    });
+                }
+            });
+        }, observerOptions);
+
+        stats.forEach(stat => statsObserver.observe(stat));
+
+        function animateCounter(stat) {
+            const target = parseInt(stat.getAttribute('data-target'));
+            const numberElement = stat.querySelector('.stat-number');
+            const duration = 2000;
+            const increment = target / (duration / 16);
+            let current = 0;
+            const hasDollar = target >= 150 || target === 200;
+
+            const timer = setInterval(() => {
+                current += increment;
+                if (current >= target) {
+                    current = target;
+                    clearInterval(timer);
+                }
+
+                if (hasDollar) {
+                    numberElement.textContent = '$' + Math.floor(current).toLocaleString();
+                } else {
+                    numberElement.textContent = Math.floor(current).toLocaleString();
+                }
+            }, 16);
+        }
+
+        // Fade-in on scroll
+        const fadeElements = document.querySelectorAll('.fade-in');
+
+        const fadeObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('visible');
                 }
             });
-        }, observerOptions);
+        }, { threshold: 0.1 });
 
-        document.querySelectorAll('section:not(.hero)').forEach(section => {
-            observer.observe(section);
+        fadeElements.forEach(el => fadeObserver.observe(el));
+
+        // FAQ Accordion
+        const faqItems = document.querySelectorAll('.faq-item');
+
+        faqItems.forEach(item => {
+            const question = item.querySelector('.faq-question');
+            question.addEventListener('click', () => {
+                const isActive = item.classList.contains('active');
+
+                // Close all items
+                faqItems.forEach(i => i.classList.remove('active'));
+
+                // Open clicked item if it wasn't active
+                if (!isActive) {
+                    item.classList.add('active');
+                }
+            });
         });
 
-        document.querySelector('.contact-form').addEventListener('submit', (e) => {
-            e.preventDefault();
-            alert('Thank you for your inquiry! We will contact you shortly.');
-            e.target.reset();
+        // Smooth scroll with offset for fixed nav
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const offset = 80;
+                    const targetPosition = target.offsetTop - offset;
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
         });
     </script>
 </body>
